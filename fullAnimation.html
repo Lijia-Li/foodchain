@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="xithiox">
+    <title>foodchain</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="scripts/lib/p5.min.js" defer></script>
+    <script src="scripts/utils.js" defer></script>
+    <script src="scripts/entity.js" defer></script>
+    <script src="scripts/entities.js" defer></script>
+    <script src="scripts/sketch.js" defer></script>
+  </head>
+  <body>
+    <button id="menu-button" onclick="toggleMenu()">Controls (Q)</button>
+    <div id="menu">
+      <h1>General</h1>
+      <p>
+        <button onclick="initEntities()">Clear screen (Enter)</button><br>
+        <button onclick="lineMode=!lineMode;if(lineMode){avoidLines=true;chaseLines=true;}else{avoidLines=false;chaseLines=false}">Cycle display mode (M)</button><br>
+        <button onclick="motionBlur=!motionBlur">Toggle motion blur (O)</button><br>
+        <button onclick="showChart=!showChart">Toggle species graph (G)</button>
+      </p>
+
+      <h1>Display</h1>
+      <p>
+        <button onclick="avoidLines=!avoidLines">Toggle avoidance (Alt)</button><br>
+        <button onclick="showNutrition=!showNutrition">Toggle nutrition (N)</button><br>
+        <button onclick="showPerception=!showPerception">Toggle perception (Ctrl)</button><br>
+        <button onclick="chaseLines=!chaseLines">Toggle targeting (Space)</button>
+      </p>
+
+      <h1>Presets</h1>
+      <p>
+        <button onclick="if(currentPreset!==0){currentPreset=0;initEntities()}">Default (0)</button><br>
+        <button onclick="if(currentPreset!==1){currentPreset=1;initEntities()}">Diverse (1)</button><br>
+        <button onclick="if(currentPreset!==2){currentPreset=2;initEntities()}">Prey (2)</button><br>
+        <button onclick="if(currentPreset!==3){currentPreset=3;initEntities()}">Fungus (3)</button><br>
+      </p>
+
+      <h1>Entities</h1>
+      <p>
+        <button onclick="selected='food'">Food (F)</button><br>
+        <button onclick="selected='fungus'">Fungus (V)</button><br>
+        <button onclick="selected='hive'">Hive (H)</button><br>
+        <button onclick="selected='pred'">Predator (P)</button><br>
+        <button onclick="selected='prey'">Prey (B)</button><br>
+        <button onclick="selected='swarm'">Swarm (S)</button>
+      </p>
+    </div>
+  </body>
+</html>
