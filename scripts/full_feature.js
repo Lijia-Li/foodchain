@@ -77,6 +77,14 @@ var sidebarOpen = false;
 var leftBuffer;
 var rightBuffer;
 
+var colors = [
+    templates.food.color, templates.prey.color, templates.swarm.color,
+    templates.pred.color, templates.fungus.color
+];
+
+var labels = [ 'Food', 'Prey', 'Swarm', 'Predator', 'Fungus'];
+
+
 // Misc functions
 
 // Set position to inside map and adjust velocity
@@ -170,49 +178,49 @@ function pieChart(entities) {
     }
 }
 
-function lineChat(entities){
-    var nums = [
-        getByName(entities, 'food').length,
-        getByName(entities, 'prey').length,
-        getByName(entities, ['hive', 'swarm']).length,
-        getByName(entities, 'pred').length,
-        getByName(entities, 'fungus').length,
-    ];
-    var colors = [
-        templates.food.color, templates.prey.color, templates.swarm.color,
-        templates.pred.color, templates.fungus.color
-    ];
 
-    new Chart(document.getElementById("line-chart"), {
+window.onload = function() {
+    var LineChart = new Chart(document.getElementById("myChart"), {
         type: 'line',
         data: {
-            labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
-            datasets: [{
-                data: [86,114,106,106,107,111,133,221,783,2478],
-                label: "Food",
-                borderColor: colors[0],
-                fill: true
-            }, {
-                data: [282,350,411,502,635,809,947,1402,3700,5267],
-                label: "Prey",
-                borderColor: colors[1],
-                fill: true
-            }, {
-                data: [168,170,178,190,203,276,408,547,675,734],
-                label: "swarm",
-                borderColor: colors[2],
-                fill: true
-            }, {
-                data: [40,20,10,16,24,38,74,167,508,784],
-                label: "Predator",
-                borderColor: colors[3],
-                fill: true
-            }, {
-                data: [6,3,2,2,7,26,82,172,312,433],
-                label: "Fungus",
-                borderColor: colors[4],
-                fill: true
-            }
+            datasets: [
+                {
+                    label: "",
+                    fillColor: "rgba(220,220,220,0.0)",
+                    strokeColor: "rgba(220,220,220,0)",
+                    pointColor: "rgba(220,220,220,0)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    // change this data values according to the vertical scale
+                    // you are looking for
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                }, {
+                    label: labels[0],
+                    borderColor: colors[0],
+                    data: [],
+                    fill: true
+                }, {
+                    label: labels[1],
+                    borderColor: colors[1],
+                    data: [],
+                    fill: true
+                }, {
+                    label: labels[2],
+                    borderColor: colors[2],
+                    data: [],
+                    fill: true
+                }, {
+                    label: labels[3],
+                    borderColor: colors[3],
+                    data: [],
+                    fill: true
+                }, {
+                    label: labels[4],
+                    borderColor: colors[4],
+                    data: [],
+                    fill: true
+                }
             ]
         },
         options: {
@@ -225,15 +233,21 @@ function lineChat(entities){
     });
 
 
+};
 
-}
 
-function chartAddData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
-    });
-    chart.update();
+function chartAddData(LineChart, entities, labels,) {
+    var nums = [
+        getByName(entities, 'food').length,
+        getByName(entities, 'prey').length,
+        getByName(entities, ['hive', 'swarm']).length,
+        getByName(entities, 'pred').length,
+        getByName(entities, 'fungus').length,
+    ];
+    for (var i = 0; i < labels.length; i ++){
+        LineChart.data.datasets[i].data.push(nums[i]);
+        }
+    LineChart.update();
 }
 
 
@@ -280,7 +294,7 @@ function draw() {
 
 function drawRight() {
     pieChart(entities);
-    // lineChat(entities);
+    chartAddData(LineChart, entities, labels);
 }
 
 function drawLeft() {
