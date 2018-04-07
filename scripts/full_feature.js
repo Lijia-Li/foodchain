@@ -82,8 +82,6 @@ var colors = [
     templates.pred.color, templates.fungus.color
 ];
 
-var labels = [ 'Food', 'Prey', 'Swarm', 'Predator', 'Fungus'];
-
 
 // Misc functions
 
@@ -179,76 +177,6 @@ function pieChart(entities) {
 }
 
 
-window.onload = function() {
-    var LineChart = new Chart(document.getElementById("myChart"), {
-        type: 'line',
-        data: {
-            datasets: [
-                {
-                    label: "",
-                    fillColor: "rgba(220,220,220,0.0)",
-                    strokeColor: "rgba(220,220,220,0)",
-                    pointColor: "rgba(220,220,220,0)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    // change this data values according to the vertical scale
-                    // you are looking for
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                }, {
-                    label: labels[0],
-                    borderColor: colors[0],
-                    data: [],
-                    fill: true
-                }, {
-                    label: labels[1],
-                    borderColor: colors[1],
-                    data: [],
-                    fill: true
-                }, {
-                    label: labels[2],
-                    borderColor: colors[2],
-                    data: [],
-                    fill: true
-                }, {
-                    label: labels[3],
-                    borderColor: colors[3],
-                    data: [],
-                    fill: true
-                }, {
-                    label: labels[4],
-                    borderColor: colors[4],
-                    data: [],
-                    fill: true
-                }
-            ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'Line Chart of the model'
-            }
-        }
-
-    });
-
-
-};
-
-
-function chartAddData(LineChart, entities, labels,) {
-    var nums = [
-        getByName(entities, 'food').length,
-        getByName(entities, 'prey').length,
-        getByName(entities, ['hive', 'swarm']).length,
-        getByName(entities, 'pred').length,
-        getByName(entities, 'fungus').length,
-    ];
-    for (var i = 0; i < labels.length; i ++){
-        LineChart.data.datasets[i].data.push(nums[i]);
-        }
-    LineChart.update();
-}
 
 
 // Clear dead entities from entities array
@@ -258,16 +186,6 @@ function removeDead(entities) {
         if (e.alive) continue;
         entities.splice(i, 1);
         e.onDeath(newEntities);
-    }
-}
-
-function toggleMenu() {
-    sidebarOpen = !sidebarOpen;
-    var m = document.getElementById('menu');
-    if (sidebarOpen && menuVisible) {
-        m.style.display = 'block';
-    } else {
-        m.style.display = 'none';
     }
 }
 
@@ -294,7 +212,7 @@ function draw() {
 
 function drawRight() {
     pieChart(entities);
-    chartAddData(LineChart, entities, labels);
+    // lineChart(entities, dataHis, labels,);
 }
 
 function drawLeft() {
@@ -366,105 +284,6 @@ function windowResized() {
     initEntities();
 }
 
-//
-// // User input
-//
-// function keyPressed() {
-//     switch (keyCode) {
-//         case 13:
-//             // Enter
-//             initEntities();
-//             break;
-//         case 17:
-//             // Ctrl
-//             showPerception = !showPerception;
-//             break;
-//         case 18:
-//             // Alt
-//             avoidLines = !avoidLines;
-//             break;
-//         case 32:
-//             // Spacebar
-//             chaseLines = !chaseLines;
-//             break;
-//         case 48:
-//         case 49:
-//         case 50:
-//         case 51:
-//         case 52:
-//         case 53:
-//         case 54:
-//         case 55:
-//         case 56:
-//         case 57:
-//             // 0-9
-//             var n = keyCode - 48;
-//             if (currentPreset !== n && presets.length > n) {
-//                 currentPreset = n;
-//                 initEntities();
-//             }
-//             break;
-//         case 66:
-//             // B
-//             selected = 'prey';
-//             break;
-//         case 70:
-//             // F
-//             selected = 'food';
-//             break;
-//         case 71:
-//             // G
-//             showChart = !showChart;
-//             break;
-//         case 72:
-//             // H
-//             selected = 'hive';
-//             break;
-//         case 77:
-//             // M
-//             lineMode = !lineMode;
-//             if (lineMode) {
-//                 avoidLines = true;
-//                 chaseLines = true;
-//             } else {
-//                 avoidLines = false;
-//                 chaseLines = false;
-//             }
-//             break;
-//         case 78:
-//             // N
-//             showNutrition = !showNutrition;
-//             break;
-//         case 79:
-//             // O
-//             motionBlur = !motionBlur;
-//             break;
-//         case 80:
-//             // P
-//             selected = 'pred';
-//             break;
-//         case 81:
-//             // Q
-//             menuVisible = !menuVisible;
-//             var b = document.getElementById('menu-button');
-//             var m = document.getElementById('menu');
-//             if (menuVisible) {
-//                 b.style.display = 'inline';
-//             } else {
-//                 b.style.display = 'none';
-//                 m.style.display = 'none';
-//             }
-//             break;
-//         case 83:
-//             // S
-//             selected = 'swarm';
-//             break;
-//         case 86:
-//             // V
-//             selected = 'fungus';
-//             break;
-//     }
-// }
 
 function mousePressed() {
     drawEntity();
