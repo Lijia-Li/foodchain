@@ -74,9 +74,6 @@ var showPerception = false;
 var menuVisible = true;
 var sidebarOpen = false;
 
-var leftBuffer;
-var rightBuffer;
-
 var colors = [
     templates.food.color, templates.prey.color, templates.swarm.color,
     templates.pred.color, templates.fungus.color
@@ -92,8 +89,8 @@ function bounceOffEdges(e) {
         e.pos.x = e.radius;
         e.vel.x *= dv;
     }
-    if (e.pos.x + e.radius > width/2) {
-        e.pos.x = width/2 - e.radius;
+    if (e.pos.x + e.radius > width) {
+        e.pos.x = width - e.radius;
         e.vel.x *= dv;
     }
     if (e.pos.y - e.radius < 0) {
@@ -123,7 +120,7 @@ function initEntities() {
         var template = keys[i];
         var count = preset.num[template];
         for (var j = 0; j < count; j++) {
-            var x = random(width/2);
+            var x = random(width);
             var y = random(height);
             entities.push(createEntity(x, y, templates[template]));
         }
@@ -137,7 +134,7 @@ function initEntities() {
 }
 
 function isOutsideMap(e) {
-    return isOutsideRect(e.pos.x, e.pos.y, 0, 0, width/2, height);
+    return isOutsideRect(e.pos.x, e.pos.y, 0, 0, width, height);
 }
 
 // Draw pie chart to show ratio of each type of entity
@@ -164,19 +161,17 @@ function pieChart(entities) {
     }
 
     // Draw pie chart
-    var diam = 150;
+    var diam = 100;
     var lastAngle = 0;
     for (var i = 0; i < angles.length; i++) {
         if (angles[i] === 0) continue;
         // Arc
         fill(colors[i].concat(191));
         noStroke();
-        arc(width/2 + 100, 100, diam, diam, lastAngle, lastAngle + angles[i]);
+        arc(width - 100, 100, diam, diam, lastAngle, lastAngle + angles[i]);
         lastAngle += angles[i];
     }
 }
-
-
 
 
 // Clear dead entities from entities array
@@ -191,31 +186,13 @@ function removeDead(entities) {
 
 
 // Main p5 functions
-
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
-    
-    leftBuffer = createGraphics(window.innerWidth/2, window.innerHeight);
-    rightBuffer = createGraphics(window.innerWidth/2, window.innerHeight);
-
+    var canvas = createCanvas(window.innerWidth/2, window.innerHeight/2);
+    canvas.parent('sketch-holder');
     initEntities();
 }
 
 function draw() {
-    drawLeft();
-    drawRight();
-
-    // Paint the off-screen buffers onto the main canvas
-    image(leftBuffer, 0, 0);
-    image(rightBuffer, window.innerWidth/2, 0);
-}
-
-function drawRight() {
-    pieChart(entities);
-    // lineChart(entities, dataHis, labels,);
-}
-
-function drawLeft() {
     // Make background slightly transparent for motion blur
     if (motionBlur) {
         background(0, 63);
@@ -232,7 +209,7 @@ function drawLeft() {
 
     // Randomly spawn food on map
     if (random(5) < 1) {
-        var x = random(width/2);
+        var x = random(width);
         var y = random(height);
         entities.push(createEntity(x, y, templates.food));
     }
@@ -269,7 +246,7 @@ function drawLeft() {
     }
 
     // Draw pie chart
-    // if (showChart) pieChart(entities);
+    pieChart(entities);
 
     removeDead(entities);
     entities = entities.concat(newEntities);
@@ -279,10 +256,10 @@ function drawLeft() {
 
 // Misc p5 functions
 
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-    initEntities();
-}
+// function windowResized() {
+//     resizeCanvas(windowWidth, windowHeight);
+//     initEntities();
+// }
 
 
 function mousePressed() {
