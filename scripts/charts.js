@@ -25,14 +25,13 @@ var layout = {
         size: 10,
         color:'white'
     },
-    width: 500,
+    width: 400,
     height: 300,
     plot_bgcolor:'black',
     paper_bgcolor:'black',
 };
 
-// todo: adjust color for the lines
-Plotly.plot('graph', [{
+var data = [{
     y: [1].map(rand),
     name: 'Food',
     mode: 'lines+markers',
@@ -62,18 +61,27 @@ Plotly.plot('graph', [{
     mode: 'lines+markers',
     marker: {color: 'rgb(102, 51, 153)', size:0},
     line: {width: 4}
-}], layout);
+}];
+
+// todo: adjust color for the lines
+Plotly.plot('graph', data, layout);
+
+
+// todo: when chart reset, reset the plot as well
+
+function redrawPlot() {
+    Plotly.newPlot('graph', data, layout);
+
+}
 
 var cnt = 0;
 var interval = setInterval(function() {
-    var entitiesNums =  getCount();
+    var entitiesNums = getCount();
     var view = {
         xaxis: {
-            // type: 'date',
             range: [cnt - 30,cnt]
         }
     };
-
     Plotly.relayout('graph', view);
     Plotly.extendTraces('graph', {
         y: [[entitiesNums[0]], [entitiesNums[1]], [entitiesNums[2]], [entitiesNums[3]], [entitiesNums[4]]]

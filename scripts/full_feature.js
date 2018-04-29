@@ -205,7 +205,10 @@ function draw() {
     var numDynamic = getByName(entities, [
         'pred', 'prey', 'swarm', 'swarmer'
     ]).length;
-    if (total <= 0 || total > 1200 || numDynamic === 0) initEntities();
+    if (total <= 0 || total > 1200 || numDynamic === 0) {
+        initEntities();
+        redrawPlot();
+    }
 
     // Randomly spawn food on map
     if (random(5) < 1) {
@@ -253,13 +256,6 @@ function draw() {
     newEntities = [];
 }
 
-
-// Misc p5 functions
-
-// function windowResized() {
-//     resizeCanvas(windowWidth, windowHeight);
-//     initEntities();
-// }
 
 
 function mousePressed() {
