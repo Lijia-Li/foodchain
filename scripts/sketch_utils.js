@@ -24,11 +24,14 @@ function isOutsideMap(e) {
 }
 
 function drawEntity() {
-    if (sidebarOpen && mouseX < 220) return;
-    if (menuVisible && mouseX < 220 && mouseY < 30) return;
+    // if (sidebarOpen && mouseX < 220) return;
+    // if (menuVisible && mouseX < 220 && mouseY < 30) return;
     entities.push(createEntity(mouseX, mouseY, templates[selected]));
 }
 
+function sprawnFood(){
+    entities.push(createEntity(mouseX, mouseY, templates.food));
+}
 
 function initEntities(preset) {
     entities = [];

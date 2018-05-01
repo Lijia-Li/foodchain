@@ -202,6 +202,20 @@ templates.pred = {
     }
 };
 
+templates.dinkPrey = {
+    accAmt: 0.5,
+    chasePriority: 2,
+    color: [82, 179, 217],
+    name: 'prey',
+    nutrition: 400,
+    perception: 100,
+    radius: 8,
+    steer: nearestTarget,
+    toChase: ['food'],
+    toEat: ['food'],
+    topSpeed: 3,
+};
+
 templates.prey = {
     accAmt: 0.5,
     chasePriority: 2,
