@@ -5,7 +5,7 @@ var selected = 'prey';
 var presets =[
     {
         num: {
-            food: 30,
+            food: 5,
             pred: 0,
             prey: 1
         },
@@ -23,7 +23,7 @@ var presets =[
 var presetNum = 0;
 var avoidLines = true;
 var chaseLines = true;
-var lineMode = false;
+var lineMode = true;
 var motionBlur = false;
 var showChart = false;
 var showNutrition = true;
@@ -41,7 +41,7 @@ var colors = [
 
 // Main p5 functions
 function setup() {
-    var canvas = createCanvas(window.innerWidth/2, window.innerHeight/2);
+    var canvas = createCanvas(window.innerWidth, window.innerHeight);
     canvas.parent('sketch-holder');
     initEntities(presets[presetNum]);
 }

@@ -7,13 +7,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="./scripts/lib/p5.min.js" defer></script>
-<script src="./scripts/lib/plotly-latest.min.js"></script>
-<script src="./scripts/utils.js" defer></script>
-<script src="./scripts/entity.js" defer></script>
-<script src="./scripts/entities.js" defer></script>
-<script src="./scripts/sketch_utils.js" defer></script>
-
 <style>
     body {font-family: "Lato", sans-serif}
 </style>
@@ -39,7 +32,7 @@
     <!--</iframe>-->
 
     <!-- The Main Content Section -->
-    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:800px">
+    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:900px">
         <h2 class="w3-wide text-shadow w3-padding-32">Prey Predator Model</h2>
         <p class="w3-opacity"><i>We love Complex System!</i></p>
 
@@ -50,7 +43,7 @@
         <p class="w3-justify">Also, if there is anything that you take away with this blog, it should be that MAS is not complicated! and it is fun.</p>
     </div>
 
-    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:800px">
+    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:900px">
         <h3 class="h3">Agent and Multi-Agent System</h3>
         <p class="w3-justify">So, what is Multi-Agent System? To begin, let’s first talk about what is an agent.</p>
         <p class="w3-justify">If one ever learned Java, or C ++, will know of a idea called Object Oriented Programming. An object can be an entity which contains some attribute and have some functions. This is very close to the idea of an agent. <b class="w3-text-white">Jacques Ferber </b>first defined that <em>an agent can be a physical or virtual entity that can act, <b class="w3-text-white">perceive</b> its environment (in a partial way) and <b class="w3-text-white">communicate</b> with others, is <b class="w3-text-white">autonomous</b> and <b class="w3-text-white">has skills to achieve its goals</b> and tendencies.</em><sup>1</sup> I view an <em>agent</em> as a extended <em>object</em> who has communication feature and autonomous decision making ability. However, the amazement does not only lies in the agent, but to connect them.</p>
@@ -59,7 +52,7 @@
         <p class="w3-justify">Nope, the ability to autonomously making does not make the agent extremely complicated! Although part of MAS research aims to discover how to connect general artificial intelligence together and negotiating in place of human, not every Multi agent system connecting artificial intelligence together. In fact, a lot of MAS system is made of simple agents that still has most agent feature. This blog will lead you through an complicated math question (with naive assumptions), Prey Predator System, by using Multi Agent System simulation.</p>
     </div>
 
-    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:800px">
+    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:900px">
 
         <h3>Prey Predator Model</h3>
         <p class="w3-justify">Long long time ago, there is a black plane and there are some green nutrition dots. There are also some blue dot (let's call it <span class="w3-text-blue">BLUE</span>, I love cute names)  who only live if it's eats a green dot in a limited amount of time. As you can see, <span class="w3-text-blue">BLUE</span> can perceive things(link with a highlighted beam) within a range that are reasonably close to it. <span class="w3-text-blue">BLUE</span> can decide which grass (the green dot) to eat or just not eat and wondered around. Yes, the smell of freedom. However, <span class="w3-text-blue">BLUE</span> has a life span as well and it's main goal is to live and not die of hunger.</p>

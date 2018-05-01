@@ -145,7 +145,7 @@ templates.fungus = {
             newEntities.push(createEntity(x, y, templates.fungus));
         }
     }
-}
+};
 
 templates.hive = {
     accAmt: 0,
