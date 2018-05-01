@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="author" content="Lijia-Li">
     <title>fullFeatureMode</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../scripts/lib/p5.min.js" defer></script>
     <script src="../scripts/lib/plotly-latest.min.js"></script>
     <script src="../scripts/utils.js" defer></script>
@@ -13,23 +15,31 @@
 
 </head>
 <body>
-    <table>
-        <th>
-            <div id="sketch-holder" class="w3_center">
-                <script src="../scripts/settings/full_feature.js" async></script>
-            </div>
-        </th>
-        <th>
+    <div class="w3-sidebar w3-bar-block w3-black " style="width:15%">
+        <a class="w3-bar-item w3-button"><i class="fa fa-refresh"></i> refresh</a>
+        <a class="w3-bar-item w3-hover-none w3-light-blue">Add...</a>
+        <a class="w3-bar-item w3-button" onclick="selected='prey'">Prey</a>
+        <a class="w3-bar-item w3-button" onclick="selected='pred'">Predator</a>
+        <a class="w3-bar-item w3-button" onclick="selected='food'">Food</a>
+        <a class="w3-bar-item w3-button" onclick="selected='hive'">Hive</a>
+        <a class="w3-bar-item w3-button" onclick="selected='fungus'">Fungus</a>
+        <a class="w3-bar-item w3-button" onclick="selected='swarm'">Swarm</a>
+    </div>
+
+    <div style="margin-left:15%">
+        <table>
             <th>
-                <div id="graph" class="w3_center">
-                    <script src="../scripts/settings/charts.js" async></script>
+                <div id="sketch-holder" class="w3_center">
+                    <script src="../scripts/settings/full_feature.js" async></script>
                 </div>
             </th>
             <th>
-
+                <div id="graph">
+                    <script src="../scripts/settings/charts.js" async></script>
+                </div>
             </th>
-        </th>
-    </table>
+        </table>
+    </div>
 
 </body>
 </html>
