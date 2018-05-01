@@ -32,42 +32,68 @@
 
 <!-- Page content -->
 <div class="w3-black w3-content" style="max-width:2000px;margin-top:46px">
-    <!-- The cycleDisplayMode head -->
-    <iframe src="frames/cycleDisplayMode.html"
-            style="height:500px;width:100%;border:none;"
-            >
-    </iframe>
+    <!--&lt;!&ndash; The cycleDisplayMode head &ndash;&gt;-->
+    <!--<iframe src="frames/cycleDisplayMode.html"-->
+            <!--style="height:500px;width:100%;border:none;"-->
+            <!--&gt;-->
+    <!--</iframe>-->
 
     <!-- The Main Content Section -->
-    <div class="w3-container w3-content w3-black w3-center w3-padding-64" style="max-width:800px" id="band">
-        <h2 class="w3-wide">Prey Predator Model</h2>
+    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:800px">
+        <h2 class="w3-wide text-shadow w3-padding-32">Prey Predator Model</h2>
         <p class="w3-opacity"><i>We love Complex System!</i></p>
-        <p class="w3-justify">    When I just get introduced to the multi-agent system (MAS), in 2017, unsurprisingly there isn’t much introductory articles, blogs, or YouTube videos. MAS were still very much under-explored in literature. After all, we are still working on perfecting intelligent agent. We can surely thinking about connecting them later…… (I guess I’m not the only one who procrastinate) Well, unsurprisingly, lately OpenAI(need href) and Deepmind (need href) both investigate on doing research on MAS. Perhaps we are not very far away from coordinating a group of agents? </p>
-        <p class="w3-justify">    Jacques Ferber defined that an agent can be a physical or virtual entity that can act, perceive its environment (in a partial way) and communicate with others, is autonomous and has skills to achieve its goals and tendencies. [Ferber, J. (1999). Multi-agent systems: an introduction to distributed artificial intelligence (Vol. 1). Reading: Addison-Wesley.] As you can tell, this is an extremely loose definition. This is because an agent can be instantiate in a lot of situations. // A common use would be digital society where each agent is considered an individual who are of some characteristics and interact with other individual as how they are defined. These agents can also work as a proxy of a party and negotiate with other agent in order to make a deal. The list goes on a on. // A multi-agent system put multiple agents in a predefined environment. The environment can be dynamic or static depends on the usage. The agent can also be connected in a specific topology. </p>
 
         <p class="w3-justify">When I just get introduced to the multi-agent system (MAS), in 2017, unsurprisingly there isn’t much introductory articles, blogs, or YouTube videos that talks about this subdomain of artificial intelligence. MAS were very much under-explored in literature. After all, we are still working on making general artificial intelligence, we can surely thinking about connecting them later…… (I guess I’m not the only one who procrastinates.)</p>
-        <p class="w3-justify">Well, unsurprisingly, lately <a href="https://blog.openai.com/learning-to-cooperate-compete-and-communicate/"><span class="s1">OpenAI</span></a> and <a href="https://deepmind.com/blog/understanding-agent-cooperation/"><span class="s1">DeepMind</span></a> both investigated on MAS research. Google talk lately invite DeepMind researchers to give lecture on<a href="https://www.youtube.com/watch?v=CvL-KV3IBcM&amp;t=347s"><span class="s1"> “The Role of Multi-Agent Learning in Artificial Intelligence Research at DeepMind.”</span></a> Judging by big companies’ steps, perhaps we are not very far away from coordinating a group of agents?</p>
-        <p class="w3-justify">Since I can not find a introductory post about MAS, I think it will be nice to create one. This post will use the example of a Prey Predator Model System to explore what is Multi-Agent System and it's other applications. Let's get started!</p>
+        <p class="w3-justify">Well, unsurprisingly, lately <a href="https://blog.openai.com/learning-to-cooperate-compete-and-communicate/"><span class="s1 w3-hover-text-green">OpenAI</span></a> and <a href="https://deepmind.com/blog/understanding-agent-cooperation/"><span class="s1 w3-hover-text-green">DeepMind</span></a> both investigated on MAS research. Google talk lately invite DeepMind researchers to give lecture on<a href="https://www.youtube.com/watch?v=CvL-KV3IBcM&amp;t=347s"><span class="s1 w3-hover-text-green"> “The Role of Multi-Agent Learning in Artificial Intelligence Research at DeepMind.”</span></a> Judging by big companies’ steps, perhaps we are not very far away from coordinating a group of agents?</p>
+        <p class="w3-justify"> Since I can not find a introductory post about MAS, I think it will be nice to create one. This post will use the example of a Prey Predator Model System to explore what is Multi-Agent System and it's other applications. Let's get started!</p>
 
-        <h2 class="p3"><b>Agent Based Model (ABM) and Multi-Agent System:</b></h2>
+        <p class="w3-justify">Also, if there is anything that you take away with this blog, it should be that MAS is not complicated! and it is fun.</p>
+    </div>
+
+    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:800px">
+        <h3 class="h3">Agent and Multi-Agent System</h3>
         <p class="w3-justify">So, what is Multi-Agent System? To begin, let’s first talk about what is an agent.</p>
-        <p class="w3-justify">If one ever learned Java, or C ++, will know of a idea called Object Oriented Programming. An object can be an entity which contains some attribute and have some functions. This is very close to the idea of an agent. <b>Jacques Ferber </b>first<b> </b>defined that <em>an agent can be a physical or virtual entity that can act, <strong>perceive</strong> its environment (in a partial way) and <strong>communicate</strong> with others, is <strong>autonomous</strong> and <strong>has skills to achieve its goals</strong> and tendencies.</em><sup>1</sup> Below is a representation of an agent in a simulated environment. The agent is the blue dot (let's call it BLUE, I love cute names)  who only live if it's eats a green dot in a limited amount of time. As you can see, BLUE can perceive things (link with a highlighted beam) that are reasonably close to it. And the main goal for BLUE is to live and not die (as pretty much everyone is). BLUE can decide which grass to eat or just not eat and wondered around. Yes, the smell of freedom.</p>
-        <iframe class="w3-center" src="frames/bi_rela.html" style="height:800px;width:900px;border:none;"></iframe>
+        <p class="w3-justify">If one ever learned Java, or C ++, will know of a idea called Object Oriented Programming. An object can be an entity which contains some attribute and have some functions. This is very close to the idea of an agent. <b class="w3-text-white">Jacques Ferber </b>first defined that <em>an agent can be a physical or virtual entity that can act, <b class="w3-text-white">perceive</b> its environment (in a partial way) and <b class="w3-text-white">communicate</b> with others, is <b class="w3-text-white">autonomous</b> and <b class="w3-text-white">has skills to achieve its goals</b> and tendencies.</em><sup>1</sup> I view an <em>agent</em> as a extended <em>object</em> who has communication feature and autonomous decision making ability. However, the amazement does not only lies in the agent, but to connect them.</p>
+        <p class="w3-justify">Multi Agent System (MAS) connect multiple agents together under a network topology. Under some simulation researcher would also construct environment for these agents to interact with, which is also part of MAS. Some might think, why bother? How are agents interactions interesting? It turns out that MAS can solve problems that otherwise would be complicated for monolithic program to solve. Besides, MAS is also frequently implemented by sociologist and collective psychologist to observe patterns in simulated society that are otherwise impossible to simulate.</p>
+        <p class="w3-justify">So, if the MAS can simulate societal pattern, the agent must have been really intelligent!? Right?</p>
+        <p class="w3-justify">Nope, the ability to autonomously making does not make the agent extremely complicated! Although part of MAS research aims to discover how to connect general artificial intelligence together and negotiating in place of human, not every Multi agent system connecting artificial intelligence together. In fact, a lot of MAS system is made of simple agents that still has most agent feature. This blog will lead you through an complicated math question (with naive assumptions), Prey Predator System, by using Multi Agent System simulation.</p>
+    </div>
 
+    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:800px">
 
-        <p class="w3-justify">As you can tell, an agent is not so fun, seeing as it's just doing a thing that it suppose to do and not many variation is found. Same in real life, most stuff can not be accomplish by one person. Some tasks requires  to coordinate people, and in this case agents to fulfill.</p>
-        <p class="w3-justify">As you can tell, this is an extremely loose definition. The looseness came from that an agent can be instantiate in a lot of situations. // A common use would be digital society where each agent is considered an individual who are of some characteristics and interact with other individual as how they are defined. These agents can also work as a proxy of a party and negotiate with other agent in order to make a deal. The list goes on a on. // A multi-agent system put multiple agents in a predefined environment. The environment can be dynamic or static depends on the usage. The agent can also be connected in a specific topology.</p>
-        <p class="w3-justify">Enough of definitions, let’s talk about the idea with a specific example.</p>
-        <p class="p3"><b>Prey Predator Model: </b></p>
-        <p class="p3"><b>Intro to prey and predator model</b></p>
-        <p class="w3-justify">I’ve always been curious about</p>
-        <p class="w3-justify">Naive assumptions:</p>
-        <p class="w3-justify">If there’s only grass and prey</p>
-        <p class="w3-justify">Equilibrium or not and when?</p>
-        <p class="w3-justify">[Ferber, J. (1999). <i>Multi-agent systems: an introduction to distributed artificial intelligence</i> (Vol. 1). Reading: Addison-Wesley.]</p>
+        <h3>Prey Predator Model</h3>
+        <p class="w3-justify">Long long time ago, there is a black plane and there are some green nutrition dots. There are also some blue dot (let's call it <span class="w3-text-blue">BLUE</span>, I love cute names)  who only live if it's eats a green dot in a limited amount of time. As you can see, <span class="w3-text-blue">BLUE</span> can perceive things(link with a highlighted beam) within a range that are reasonably close to it. <span class="w3-text-blue">BLUE</span> can decide which grass (the green dot) to eat or just not eat and wondered around. Yes, the smell of freedom. However, <span class="w3-text-blue">BLUE</span> has a life span as well and it's main goal is to live and not die of hunger.</p>
+        <span style="color: #99cc00;">&lt;Here shall goes the iframe&gt; </span>
 
+        <p class="w3-justify">This is only an agent. It has some goal, some limit, the ability to perceive and a lot decisions to make. Things be come interesting if there are more agents. What if they have the ability to make offspring?</p>
 
-        <iframe class="w3-center" src="frames/fullFeatureMode.html" style="height:800px;width:900px;border:none;"></iframe>
+        <span style="color: #99cc00;">&lt;Here shall goes the iframe&gt; </span>
+
+        <p class="w3-justify">Since there are limited resources for <span class="w3-text-blue">BLUE</span>s, that not everyone can be feed and thus the population have a cap. Such a paradise for <span class="w3-text-blue">BLUE</span>s... Until, some REDs invade into their playground.</p>
+
+        <span style="color: #99cc00;">&lt;Here shall goes the iframe&gt; </span>
+
+        <p class="w3-justify">Same in real life, most stuff can not be accomplish by one person. Some tasks requires  to coordinate people, and in this case agents to fulfill.</p>
+
+        &nbsp;
+
+        Equilibrium or not and when?
+
+        Back in 2010, Nathan Crock wrote a <a href="http://mathnathan.com/2010/12/predator-prey-model/" class="s1 w3-hover-text-green">blog</a> that goes into depth talking about mathematic interpretation of the problem.
+    </div>
+
+    <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:800px">
+
+        <h3>More than PPM</h3>
+        <p class="w3-justify">Despite PPM</p>
+        <p class="w3-justify">A common use would be digital society where each agent is considered an individual who are of some characteristics and interact with other individual as how they are defined.</p>
+        <p class="w3-justify">These agents can also work as a proxy of a party and negotiate with other agent in order to make a deal. The list goes on a on. // A multi-agent system put multiple agents in a predefined environment. The environment can be dynamic or static depends on the usage. The agent can also be connected in a specific topology.</p>
+        <p class="w3-justify"></p>
+
+        <p class="w3-justify">1: Ferber, J. (1999). <i>Multi-agent systems: an introduction to distributed artificial intelligence</i> (Vol. 1). Reading: Addison-Wesley.</p>
+
+        <!--<iframe class="w3-center" src="frames/bi_rela.html" style="height:800px;width:900px;border:none;"></iframe>-->
+        <!--<iframe class="w3-center" src="frames/fullFeatureMode.html" style="height:800px;width:900px;border:none;"></iframe>-->
     </div>
 
     <!-- End Page Content -->
