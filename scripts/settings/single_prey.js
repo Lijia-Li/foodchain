@@ -28,7 +28,9 @@ var colors = [
 
 // Main p5 functions
 function setup() {
-    var canvas = createCanvas(window.innerWidth-5, window.innerHeight-5);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    var canvas = createCanvas(width-0.05*width, height-0.05*height);
     canvas.parent('sketch-holder');
     initEntities(preset);
 }
@@ -51,11 +53,12 @@ function draw() {
     }
 
     // Randomly spawn food on map
-    // if (random(50) < 1) {
-    //     var x = random(width);
-    //     var y = random(height);
-    //     entities.push(createEntity(x, y, templates.food));
-    // }
+    if (random(50) < 1) {
+        var x = random(width);
+        var y = random(height);
+        entities.push(createEntity(x, y, templates.food));
+    }
+
 
     // Update and draw all entities
     for (var i = 0; i < entities.length; i++) {
