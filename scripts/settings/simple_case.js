@@ -20,14 +20,15 @@ var presets =[
         custom: []
     }
 ]
-var presetNum = 0;
+var presetNum;
 var avoidLines = true;
 var chaseLines = true;
-var lineMode = true;
+var lineMode = false;
 var motionBlur = false;
 var showChart = false;
 var showNutrition = true;
 var showPerception = false;
+var slider = document.getElementById("foodSpeed")
 
 var colors = [
     templates.food.color, templates.prey.color, templates.swarm.color,
@@ -41,8 +42,9 @@ var colors = [
 
 // Main p5 functions
 function setup() {
-    var canvas = createCanvas(window.innerWidth, window.innerHeight);
+    var canvas = createCanvas(window.innerWidth/2, window.innerHeight/2);
     canvas.parent('sketch-holder');
+    console.log(presets[presetNum]);
     initEntities(presets[presetNum]);
 }
 
@@ -63,8 +65,9 @@ function draw() {
         initEntities(presets[presetNum]);
     }
 
+    console.log(slider.value)
     // Randomly spawn food on map
-    if (random(5) < 1) {
+    if (random(100 - slider.value) < 1) {
         var x = random(width);
         var y = random(height);
         entities.push(createEntity(x, y, templates.food));
@@ -109,5 +112,10 @@ function draw() {
     newEntities = [];
 }
 
+function mousePressed() {
+    sprawnFood()
+}
 
-
+function mouseDragged() {
+    sprawnFood()
+}
