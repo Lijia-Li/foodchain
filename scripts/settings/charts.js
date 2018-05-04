@@ -25,7 +25,7 @@ var layout = {
         size: 10,
         color:'white'
     },
-    width: 400,
+    width: 350,
     height: 300,
     plot_bgcolor:'black',
     paper_bgcolor:'black',

@@ -41,7 +41,9 @@ function toggleMenu() {
 // Main p5 functions
 
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    createCanvas(width-0.05*width, height-0.05*height);
     initEntities(preset);
 }
 

@@ -14,8 +14,8 @@ var presets =[
     {
         num: {
             food: 30,
-            pred: 1,
-            prey: 1
+            pred: 3,
+            prey: 10
         },
         custom: []
     }
@@ -28,7 +28,7 @@ var motionBlur = false;
 var showChart = false;
 var showNutrition = true;
 var showPerception = false;
-var slider = document.getElementById("foodSpeed")
+var slider = document.getElementById("foodSpeed");
 
 var colors = [
     templates.food.color, templates.prey.color, templates.swarm.color,
