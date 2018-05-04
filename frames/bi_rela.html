@@ -4,16 +4,32 @@
         <meta charset="utf-8">
         <meta name="author" content="Lijia-Li">
         <title>simple_case</title>
+        <link rel="stylesheet" href="../style.css" >
         <script src="../scripts/lib/p5.min.js" defer></script>
         <script src="../scripts/lib/plotly-latest.min.js"></script>
         <script src="../scripts/utils.js" defer></script>
+        <script src="../scripts/sketch_utils.js" defer></script>
         <script src="../scripts/entity.js" defer></script>
         <script src="../scripts/entities.js" defer></script>
         <script src="../scripts/sketch_utils.js" defer></script>
     </head>
-    <body onload="presetNum=0; avoidLines=true; chaseLines=true">
-        <div id="sketch-holder" class="w3_center">
-            <script src="../scripts/settings/simple_case.js" async></script>
-        </div>
+    <body onload="presetNum=0">
+        <table>
+        <th>
+            <div id="sketch-holder" class="w3_center">
+                <script src="../scripts/settings/simple_case.js" async></script>
+            </div>
+        </th>
+        <th>
+            <div class="slidecontainer">
+                <p class="slidertitle"> Speed of Sprawning Food </p>
+                <input type="range" min="1" max="100" value="20" class="slider center" id="foodSpeed">
+            </div>
+            <br>
+            <div id="graph">
+                <script src="../scripts/settings/charts.js" async></script>
+            </div>
+        </th>
+        </table>
     </body>
 </html>
