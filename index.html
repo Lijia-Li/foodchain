@@ -51,30 +51,40 @@
     <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:900px">
 
         <h3>Prey Predator Model</h3>
-        <p class="w3-justify">Long long time ago, there is a black plane and there are some <span style="color: #99cc00;">green</span> nutrition dots. There are also some blue dots too (let's call it <span class="w3-text-blue">BLUE</span>, I love cute names)  who only live if it's eats a <span style="color: #99cc00;">green</span> dot in a limited amount of time. Otherwise, it becomes weaker and weaker and will eventually die of hunger. As you can see, <span class="w3-text-blue">BLUE</span> can perceive things (link with a highlighted beam) within a certain radius. <span class="w3-text-blue">BLUE</span> can decide which <span style="color: #99cc00;">green</span> dot to eat or just wondering around. Yes, the smell of freedom! However, <span class="w3-text-blue">BLUE</span> has a life span as well and it's main goal is to live and not die.</p>
-        <!--<iframe class="w3-center w3-border" src="frames/single_prey.html" style="height:400px;width:500px;"></iframe>-->
+        <p class="w3-justify">Long long time ago, there is a black plane and there are some <span style="color: #99cc00;">green</span> nutrition dots. There are also some blue dots too (let's call it <span class="w3-text-blue">BLUE</span>, I love cute names)  who only live if it's eats a <span style="color: #99cc00;">green</span> dot in a limited amount of time. Otherwise, it becomes weaker and weaker and will eventually die of hunger. As you can see, <span class="w3-text-blue">BLUE</span> can perceive things (link with a highlighted beam) within a certain radius.  can decide which <span style="color: #99cc00;">green</span> dot to eat or just wondering around. Yes, the smell of freedom! However, <span class="w3-text-blue">BLUE</span> has a life span as well and it's main goal is to live and not die.
+            <i class="fa fa-refresh w3-hover-opacity w3-justify" onClick='document.getElementById("single_prey").src="frames/single_prey.html"'> Click to load the windows below</i></p>
+        <iframe id="single_prey" class="w3-center w3-border" style="height:400px;width:500px;"></iframe>
 
-        <p class="w3-justify">This is only an agent. It has some goal, some limit, the ability to perceive and a lot decisions to make. Things be come interesting if there are more agents. What if they have the ability to make offspring?</p>
+        <p class="w3-justify">This is only an agent. It has some goal, some limit, the ability to perceive and a lot decisions to make. Things be come interesting if there are more agents. What if they have the ability to make offspring?
+            <i class="fa fa-refresh w3-hover-opacity w3-justify" onClick='document.getElementById("bi").src="frames/bi_rela.html"'> Click to load the windows below</i></p>
 
-        <!--<iframe class="w3-center" src="frames/bi_rela.html" style="height:400px;width:900px;border:none;"></iframe>-->
+        <iframe id="bi" class="w3-center w3-border" style="height:400px;width:800px;"></iframe>
 
         <p class="w3-justify">Since there are limited resources for <span class="w3-text-blue">BLUE</span>s, that not everyone can be feed and thus initiate intraspecific competition, such that the population stop growing after a while. Notice here that by modeling this system through MAS, we can gain a direct impression of how each inividual survive in the environment as we can record data for all the agent (not visible here, but definitly in the background). Compare to using traditional math caclulation where you can only get the macroscopic understanding of the issue. </p>
-        <p>So far, besides limited food, it is such a paradise for <span class="w3-text-blue">BLUE</span>s... Until, some <span class="w3-text-red">RED</span>s invade into their playground.</p>
+        <p class="w3-justify">So far, besides limited food, it is such a paradise for <span class="w3-text-blue">BLUE</span>s... Until, some <span class="w3-text-red">RED</span>s invade into their playground.
+            <i class="fa fa-refresh w3-hover-opacity w3-justify" onClick='document.getElementById("tri").src="frames/tri_rela.html"'> Click to load the windows below</i></p>
 
-        <!--<iframe class="w3-center" src="frames/tri_rela.html" style="height:400px;width:900px;border:none;"></iframe>-->
+        <iframe id="tri" class="w3-cente w3-border" style="height:400px;width:800px;"></iframe>
 
         <p class="w3-justify"> Yep, <span class="w3-text-red">RED</span> devour <span class="w3-text-blue">BLUE</span>. Due to the "help" of insufficient food and ferocious predator,  <span class="w3-text-blue">BLUE</span>'s polulation decrease even more. However, we all know that they are a dynamic relationship, sometime when <span class="w3-text-red">RED</span> eat too much <span class="w3-text-blue">BLUE</span> that it is hard to catch more food that <span class="w3-text-red">RED</span>'s population also decrease. And becasue of <span class="w3-text-red">RED</span>'s disappearing, more <span class="w3-text-blue">BLUE</span> offspring remain alive. This relationship can be captiured by the below chart.</p>
         <p class="w3-center"> <img src="./pics/Predator-prey-population-growth-in-time.jpg" alt="Ideal dynamic for prey and predator system" width="507" height="417" ></p>
         <p class="w3-opacity"><i>picture Extracted from <a href="https://x-engineer.org/graduate-engineering/cad-cae/xcos/simulation-predator-prey-model-xcos/">x-engineer</a> </i></p>
         <p class="w3-justify">In a typical math class, professor would teach you Lotka-Volterra Equations. I would not go into math detail as it's not the point of the blog, but the idea is that it is a complicated formula that model the prey predator relationship. If you'd like to know the math sides, check the <a href="http://mathnathan.com/2010/12/predator-prey-model/" class="s1 w3-hover-text-green">blog</a> written by Nathan Crock. In stead, I would like to point out that first, you can use MAS to simulate the issue when multiple agent is involved in the system. Besdies, instead of only getting the total number of surviving item, you can use MAS and get all the internal data of each individual and make more detail assumption/deduction of the issue. </p>
-        <p class="w3-justify">For example, we can introduce other species and make speculation about how things will go then! </p>
-        <iframe class="w3-center" src="frames/fullFeatureMode.html" style="height:400px;width:900px;border:none;"></iframe>
+        <p class="w3-justify">We can surely adding more species to bette model reality. I add in Fungus and Swarm below. To not get you all confusing, let's sum up all the relationship:
+        </p>
+        <ul style="list-style-type: circle">
+            <li><span class="w3-text-blue">BLUE</span> eats <span class="w3-text-green">Green</span></li>
+            <li><span class="w3-text-red">RED</span> eats <span class="w3-text-blue">BLUE</span> </li>
+            <li><span class="w3-text-purple">Fungus</span> eats <span class="w3-text-blue">BLUE</span> </li>
+            <li><span class="w3-text-yellow">Swarm</span> eats <span class="w3-text-blue">BLUE</span>, <span class="w3-text-red">RED</span>, <span class="w3-text-purple">Fungus</span></li>
+        </ul>
+        <i class="fa fa-refresh w3-hover-opacity w3-justify" onClick='document.getElementById("full").src="frames/fullFeatureMode.html"'> Click to load the windows below </i>
+        <iframe id="full" class="w3-center w3-border" style="height:400px;width:900px;"></iframe>
     </div>
 
     <div class="w3-container w3-content w3-black w3-center w3-text-light-grey w3-large w3-padding-24" style="max-width:900px">
 
-        <h3>More than PPM</h3>
-        <p class="w3-justify">Despite PPM</p>
+        <h3>More than Prey Predator Model</h3>
         <p class="w3-justify">A common use would be digital society where each agent is considered an individual who are of some characteristics and interact with other individual as how they are defined.</p>
         <p class="w3-justify">These agents can also work as a proxy of a party and negotiate with other agent in order to make a deal. The list goes on a on. // A multi-agent system put multiple agents in a predefined environment. The environment can be dynamic or static depends on the usage. The agent can also be connected in a specific topology.</p>
         <p class="w3-justify"></p>
