@@ -6,7 +6,7 @@ var presets = [
     {
         num: {
             food: 30,
-            pred: 10,
+            pred: 5,
             prey: 20
         },
         custom: []
@@ -121,7 +121,7 @@ function pieChart(entities) {
 
 // Main p5 functions
 function setup() {
-    var canvas = createCanvas(window.innerWidth/2, window.innerHeight/2);
+    var canvas = createCanvas(window.innerWidth/2, window.innerHeight - 10);
     canvas.parent('sketch-holder');
     initEntities(presets[0]);
 }
@@ -182,8 +182,8 @@ function draw() {
         }
     }
 
-    // Draw pie chart
-    pieChart(entities);
+    // // Draw pie chart
+    // pieChart(entities);
 
     removeDead(entities);
     entities = entities.concat(newEntities);
