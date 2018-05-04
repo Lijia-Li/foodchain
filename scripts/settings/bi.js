@@ -65,7 +65,6 @@ function draw() {
         initEntities(presets[presetNum]);
     }
 
-    console.log(slider.value)
     // Randomly spawn food on map
     if (random(100 - slider.value) < 1) {
         var x = random(width);
